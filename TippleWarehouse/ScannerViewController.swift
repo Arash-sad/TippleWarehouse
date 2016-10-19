@@ -137,7 +137,6 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
                     
                     DispatchQueue.main.async(execute: { () -> Void in
                         self.captureSession.stopRunning()
-                        
                         let productId = self.barcodeToProductId(barcode: capturedBarcode)
                         if (productId == 0  || !self.producIds.contains(productId)) {
                             self.alert(title: "Wrong Product!", message: "You have scanned the wrong item. Do not take it!")
@@ -214,11 +213,11 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
     
     func barcodeToProductId(barcode: String) -> Int {
         switch barcode {
-        case "5000396015935":
+        case "93258081":
             return 1
-        case "0021200503498":
+        case "9343529000160":
             return 2
-        case "9781472739797":
+        case "9345663000792":
             return 3
         default:
             return 0
