@@ -1,0 +1,68 @@
+[
+  {
+    "order_id": 123,
+    "firstname": "Joshua",
+    "lastname": "Lawson",
+    "address": "146 Chapel St",
+    "suburb": "St Kilda",
+    "postcode": 3182,
+    "state": "Victoria",
+    "country": "Australia",
+    "products": [
+      {
+        "product_id": 1,
+        "product_name": "Carlton Draught",
+        "quantity": 6
+      },
+      {
+        "product_id": 3,
+        "product_name": "Moon Dog Angry Man Pale Ale",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "order_id": 124,
+    "firstname": "Ryan",
+    "lastname": "Barrington",
+    "address": "3 Mary St",
+    "suburb": "Windsor",
+    "postcode": 3181,
+    "state": "Victoria",
+    "country": "Australia",
+    "products": [
+      {
+        "product_id": 1,
+        "product_name": "Carlton Draught",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "order_id": 125,
+    "firstname": "Sam",
+    "lastname": "Tan",
+    "address": "3 Melby Ave",
+    "suburb": "St Kilda",
+    "postcode": 3183,
+    "state": "Victoria",
+    "country": "Australia",
+    "products": [
+      {
+        "product_id": 2,
+        "product_name": "West Winds Gin The Cutlass",
+        "quantity": 1
+      },
+      {
+        "product_id": 3,
+        "product_name": "Moon Dog Angry Man Pale Ale",
+        "quantity": 24
+      },
+      {
+        "product_id": 1,
+        "product_name": "Carlton Draught",
+        "quantity": 24
+      }
+    ]
+  }
+]

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tpL-aW-GTe">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TippleWarehouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,155 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itv-Tm-21c">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderCell" id="3qx-hH-GWB" customClass="OrderTableViewCell" customModule="TippleWarehouse" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3qx-hH-GWB" id="xp5-oh-RP6">
+                                            <frame key="frameInset" width="375" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fde-0a-MXn">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="topMargin" secondItem="fde-0a-MXn" secondAttribute="top" id="Lf5-rD-pa2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fde-0a-MXn" secondAttribute="trailing" id="cAQ-AT-XIZ"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="fde-0a-MXn" secondAttribute="leading" id="hLh-GO-rQH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="orderIdLabel" destination="fde-0a-MXn" id="2MW-0u-ngn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="NHN-a4-2iK"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QoC-ml-Lwt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="itv-Tm-21c" secondAttribute="trailing" id="5la-9t-AIj"/>
+                            <constraint firstItem="itv-Tm-21c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dOJ-Yt-8tL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="itv-Tm-21c" secondAttribute="bottom" id="gLM-PB-57B"/>
+                            <constraint firstItem="itv-Tm-21c" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="zq5-wE-sbh"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hPZ-FN-ZeK"/>
+                    <connections>
+                        <outlet property="tableView" destination="itv-Tm-21c" id="3w4-z6-AiI"/>
+                        <segue destination="BJy-q0-aXg" kind="show" identifier="OrderDetailSegue" id="xlS-mS-eOs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1057" y="-545"/>
+        </scene>
+        <!--Order Details View Controller-->
+        <scene sceneID="evj-2G-So7">
+            <objects>
+                <viewController id="BJy-q0-aXg" customClass="OrderDetailsViewController" customModule="TippleWarehouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b23-Lz-Vmb"/>
+                        <viewControllerLayoutGuide type="bottom" id="7KT-Di-nAC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q99-Wj-P5L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BsC-cn-nY8">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderDetailsCell" id="A5A-fp-PWj" customClass="OrderDetailsTableViewCell" customModule="TippleWarehouse" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A5A-fp-PWj" id="7me-Jr-eGi">
+                                            <frame key="frameInset" width="375" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1R-Ey-1NF">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="i1R-Ey-1NF" secondAttribute="leading" id="3Ip-Rv-cZu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="i1R-Ey-1NF" secondAttribute="trailing" id="qoe-4B-AF1"/>
+                                                <constraint firstAttribute="topMargin" secondItem="i1R-Ey-1NF" secondAttribute="top" id="uQe-DR-yIA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="productIdLabel" destination="i1R-Ey-1NF" id="qBk-4Z-piX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BJy-q0-aXg" id="crC-lJ-8pK"/>
+                                    <outlet property="delegate" destination="BJy-q0-aXg" id="R5r-a7-2el"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BsC-cn-nY8" firstAttribute="top" secondItem="b23-Lz-Vmb" secondAttribute="bottom" constant="-64" id="QlK-ra-ilm"/>
+                            <constraint firstItem="BsC-cn-nY8" firstAttribute="leading" secondItem="Q99-Wj-P5L" secondAttribute="leading" id="Seb-ov-QcB"/>
+                            <constraint firstItem="7KT-Di-nAC" firstAttribute="top" secondItem="BsC-cn-nY8" secondAttribute="bottom" id="hbE-yF-pcX"/>
+                            <constraint firstAttribute="trailing" secondItem="BsC-cn-nY8" secondAttribute="trailing" id="puz-tn-JYA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="BsC-cn-nY8" id="UaX-xa-Zze"/>
+                        <segue destination="an9-0D-X6D" kind="presentation" identifier="ScannerSegue" id="ZAy-cs-xi7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GLC-0t-dII" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="-545.57721139430294"/>
+        </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="Igj-es-Df9">
+            <objects>
+                <viewController id="an9-0D-X6D" customClass="ScannerViewController" customModule="TippleWarehouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qk6-6K-Sps"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wdk-Mk-d2o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ado-rP-T18">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMs-v4-2JG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3025" y="-546"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YE2-aC-KLt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tpL-aW-GTe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wCk-nN-ig1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eLm-VW-Hca"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBP-CM-9zL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109.59999999999999" y="-543.77811094452773"/>
         </scene>
     </scenes>
 </document>

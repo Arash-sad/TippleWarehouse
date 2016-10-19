@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  TippleWarehouse
+
+  Created by Arash Sadeghieh E on 17/10/2016.
+  Copyright © 2016 Treepi. All rights reserved.
+*/
+
+NSLocationWhenInUseUsageDescription = "Location usage description";
+
+NSPhotoLibraryUsageDescription = "Photos usage description";
+
+NSCameraUsageDescription = "Camera usage description";
