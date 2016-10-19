@@ -1,19 +1,16 @@
 //
-//  OrderTableViewCell.swift
+//  ScannerTableViewCell.swift
 //  TippleWarehouse
 //
-//  Created by Arash Sadeghieh E on 17/10/2016.
+//  Created by Arash Sadeghieh E on 19/10/2016.
 //  Copyright © 2016 Treepi. All rights reserved.
 //
 
 import UIKit
 
-class OrderTableViewCell: UITableViewCell {
+class ScannerTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var orderIdLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    
+    @IBOutlet weak var productLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

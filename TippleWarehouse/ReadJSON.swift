@@ -20,7 +20,7 @@ func loadJson(fileName: String) -> [Order]  {
                             var orderProducts = [Product]()
                             for products in nestedArray {
                                 if let productDictionary = products as? [String:Any] {
-                                    let product = Product(productId: productDictionary["product_id"] as! Int, productName: productDictionary["product_name"] as! String, quantity: productDictionary["quantity"] as! Int)
+                                    let product = Product(productId: productDictionary["product_id"] as! Int, productName: productDictionary["product_name"] as! String, quantity: productDictionary["quantity"] as! Int, isScanned: false)
                                     orderProducts.append(product)
                                 }
                             }

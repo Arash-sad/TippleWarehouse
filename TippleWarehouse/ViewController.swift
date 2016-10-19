@@ -20,12 +20,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Read from JSON file
         self.orders = loadJson(fileName: "orders")
         
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     // MARK: - Navigation
@@ -58,7 +61,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell") as! OrderTableViewCell
         
-        cell.orderIdLabel.text = "OrderId:" + String(self.orders[indexPath.row].orderId)
+        if self.orders[indexPath.row].isCollected == false {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
+        
+        cell.orderIdLabel.text = String(self.orders[indexPath.row].orderId)
+        cell.nameLabel.text = self.orders[indexPath.row].firstName + " " + self.orders[indexPath.row].lastName
+        cell.addressLabel.text = self.orders[indexPath.row].address + " " + self.orders[indexPath.row].suburb + " " + self.orders[indexPath.row].state + " " + String(self.orders[indexPath.row].postCode) + " " + self.orders[indexPath.row].country
         
         return cell
     }

@@ -10,7 +10,8 @@ import UIKit
 
 class OrderDetailsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var productIdLabel: UILabel!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var productQuantityLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Order {
+class Order {
     
     let orderId: Int
     let firstName: String
@@ -19,7 +19,7 @@ struct Order {
     let state: String
     let country: String
     let products: [Product]
-    let isCollected: Bool
+    var isCollected: Bool
     
     init(orderId: Int, firstName: String, lastName: String, address: String, suburb: String, postCode: Int, state: String, country: String, products: [Product], isCollected: Bool) {
         self.orderId = orderId

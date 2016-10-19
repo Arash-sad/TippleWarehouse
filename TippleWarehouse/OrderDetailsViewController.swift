@@ -38,6 +38,7 @@ class OrderDetailsViewController: UIViewController, UITableViewDelegate, UITable
             let scannerVC = segue.destination as? ScannerViewController
             
             scannerVC?.products = self.order.products
+            scannerVC?.delegate = self
         }
     }
 
@@ -54,7 +55,14 @@ class OrderDetailsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsCell") as! OrderDetailsTableViewCell
         
-        cell.productIdLabel.text = "ProductId:" + String(self.order.products[indexPath.row].productId)
+        if self.order.isCollected == false {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
+        
+        cell.productNameLabel.text = self.order.products[indexPath.row].productName
+        cell.productQuantityLabel.text = String(self.order.products[indexPath.row].quantity)
         
         return cell
     }
@@ -62,7 +70,18 @@ class OrderDetailsViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+}
 
+// MARK: - Protocol function implementation
+extension OrderDetailsViewController: updateCompletedOrder {
+    func updateOrder() {
+        for product in self.order.products {
+            product.isScanned = true
+        }
+        self.order.isCollected = true
+        self.tableView.reloadData()
+    }
 }

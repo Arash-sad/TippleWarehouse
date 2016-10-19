@@ -22,6 +22,7 @@
 		5B3E03A51DB630CE008BF6D5 /* OrderDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E03A41DB630CE008BF6D5 /* OrderDetailsTableViewCell.swift */; };
 		5B3E03A71DB648B3008BF6D5 /* DiscoveredBarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E03A61DB648B3008BF6D5 /* DiscoveredBarCodeView.swift */; };
 		5B3E03A91DB64984008BF6D5 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E03A81DB64984008BF6D5 /* ScannerViewController.swift */; };
+		5B3E03AB1DB78D97008BF6D5 /* ScannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E03AA1DB78D97008BF6D5 /* ScannerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5B3E03A41DB630CE008BF6D5 /* OrderDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		5B3E03A61DB648B3008BF6D5 /* DiscoveredBarCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveredBarCodeView.swift; sourceTree = "<group>"; };
 		5B3E03A81DB64984008BF6D5 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		5B3E03AA1DB78D97008BF6D5 /* ScannerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				5B3E03A61DB648B3008BF6D5 /* DiscoveredBarCodeView.swift */,
 				5B3E03A01DB4F128008BF6D5 /* OrderTableViewCell.swift */,
 				5B3E03A41DB630CE008BF6D5 /* OrderDetailsTableViewCell.swift */,
+				5B3E03AA1DB78D97008BF6D5 /* ScannerTableViewCell.swift */,
 				5B3E03801DB3604B008BF6D5 /* Main.storyboard */,
 				5B3E03831DB3604B008BF6D5 /* Assets.xcassets */,
 				5B3E03851DB3604B008BF6D5 /* LaunchScreen.storyboard */,
@@ -177,6 +180,7 @@
 				5B3E03A31DB6305F008BF6D5 /* OrderDetailsViewController.swift in Sources */,
 				5B3E03A71DB648B3008BF6D5 /* DiscoveredBarCodeView.swift in Sources */,
 				5B3E037F1DB3604B008BF6D5 /* ViewController.swift in Sources */,
+				5B3E03AB1DB78D97008BF6D5 /* ScannerTableViewCell.swift in Sources */,
 				5B3E037D1DB3604B008BF6D5 /* AppDelegate.swift in Sources */,
 				5B3E03A51DB630CE008BF6D5 /* OrderDetailsTableViewCell.swift in Sources */,
 			);
