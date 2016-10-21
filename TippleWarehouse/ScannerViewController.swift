@@ -23,6 +23,7 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
     var identifiedBorder : DiscoveredBarCodeView?
     var timer : Timer?
     
+    var orderId:Int!
     var products:[Product]!
     var producIds = [Int]()
     
@@ -30,6 +31,8 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationBar.topItem?.title = "Order Id: " + String(orderId)
         
         for product in products {
             self.producIds.append(product.productId)
@@ -65,7 +68,7 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
         if self.products[0].isScanned == false {
             captureSession.startRunning()
         } else {
-            alertForCompletedOrders(title: "Packed Already!", message: "This order is completed!")
+            alertForCompletedOrders(title: "Packed Already!", message: "This order has already been collected.")
         }
         
     }
@@ -84,7 +87,6 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         previewLayer?.frame = CGRect(x: 0, y: self.view.bounds.height/2, width: self.view.bounds.width, height: self.view.bounds.height/2)
-//        previewLayer?.position = CGPoint(x:self.view.bounds.midX,y:self.view.bounds.midY)
         self.view.layer.addSublayer(previewLayer!)
     }
     
@@ -139,7 +141,7 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
                         self.captureSession.stopRunning()
                         let productId = self.barcodeToProductId(barcode: capturedBarcode)
                         if (productId == 0  || !self.producIds.contains(productId)) {
-                            self.alert(title: "Wrong Product!", message: "You have scanned the wrong item. Do not take it!")
+                            self.alert(title: "Wrong Product!", message: "You have scanned the wrong item. Do not take it.")
                         } else {
                             for var product in self.products {
                                 if (product.productId == productId && product.isScanned == false) {
@@ -147,7 +149,7 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
                                     self.tableView.reloadData()
                                     self.alertForCorrectItem(productName: product.productName,quantity: String(product.quantity))
                                 } else if (product.productId == productId && product.isScanned == true) {
-                                    self.alert(title: "Scanned Already!", message: "You have scanned this item before, please double check your bag!")
+                                    self.alert(title: "Scanned Already!", message: "You have scanned this item before, please double check your bag.")
                                 }
                             }
                         }
@@ -183,7 +185,7 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
                 scanned.append(product.isScanned)
             }
             if !scanned.contains(false) {
-                self.alertForCompletedOrders(title: "Great Job!", message: "You have finished this order!")
+                self.alertForCompletedOrders(title: "Good Job!", message: "This order has been completed.")
                 self.delegate?.updateOrder()
             } else {
                 self.removeBorder()
@@ -213,9 +215,9 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
     
     func barcodeToProductId(barcode: String) -> Int {
         switch barcode {
-        case "93258081":
+        case "93258081":    
             return 1
-        case "9343529000160":
+        case "9343529000160":   
             return 2
         case "9345663000792":
             return 3
@@ -247,7 +249,7 @@ class ScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDele
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
         
-        cell.productLabel.text = self.products[indexPath.row].productName + " X " + String(self.products[indexPath.row].quantity)
+        cell.productLabel.text = self.products[indexPath.row].productName + "   X   " + String(self.products[indexPath.row].quantity)
         
         return cell
     }

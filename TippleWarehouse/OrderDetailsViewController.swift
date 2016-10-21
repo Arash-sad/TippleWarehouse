@@ -17,6 +17,8 @@ class OrderDetailsViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.title = "Order Id: " + String(order.orderId)
+        
         // Add Scan bar Button Item to Navigation Controller
         let rightBarButton = UIBarButtonItem(title: "Scan", style: .plain, target: self, action: #selector(OrderDetailsViewController.scannerCameraView))
         self.navigationItem.setRightBarButton(rightBarButton, animated: true)
@@ -39,6 +41,7 @@ class OrderDetailsViewController: UIViewController, UITableViewDelegate, UITable
             
             scannerVC?.products = self.order.products
             scannerVC?.delegate = self
+            scannerVC?.orderId = self.order.orderId
         }
     }
 

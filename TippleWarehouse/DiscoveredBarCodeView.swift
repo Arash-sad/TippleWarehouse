@@ -37,7 +37,7 @@ class DiscoveredBarCodeView: UIView {
     
     func setMyView() {
         borderLayer = CAShapeLayer()
-        borderLayer?.strokeColor = UIColor.red.cgColor
+        borderLayer?.strokeColor = UIColor.clear.cgColor
         borderLayer?.lineWidth = 2.0
         borderLayer?.fillColor = UIColor.clear.cgColor
         self.layer.addSublayer(borderLayer!)
